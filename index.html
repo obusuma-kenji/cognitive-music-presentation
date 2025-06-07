@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音楽スタイルと認知療法 - 意味付けの力</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hiragino Sans', 'Meiryo', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .slide {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 30px 0;
+            padding: 40px;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            font-size: 2em;
+            color: #34495e;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 1.5em;
+            color: #2980b9;
+            margin: 20px 0 15px 0;
+        }
+        
+        .title-slide {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .title-slide h1 {
+            color: white;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+        
+        .music-example {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .music-example h4 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .comparison-item {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-item h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .cognitive-points {
+            background: #e8f5e8;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #27ae60;
+        }
+        
+        .cognitive-points h4 {
+            color: #27ae60;
+            margin-bottom: 15px;
+        }
+        
+        .practical-exercise {
+            background: #fff3cd;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ffc107;
+        }
+        
+        .practical-exercise h4 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+        
+        .key-insight {
+            background: #d1ecf1;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #17a2b8;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        
+        ul {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+        
+        li {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+        
+        .highlight {
+            background: #ffeb3b;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .quote {
+            font-style: italic;
+            font-size: 1.1em;
+            text-align: center;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #9b59b6;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+        }
+        
+        .slide-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .slide {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- スライド1: タイトル -->
+        <div class="slide title-slide">
+            <div class="slide-number">1/8</div>
+            <h1>音楽スタイルと認知療法</h1>
+            <p class="subtitle">同じ歌詞、異なる印象<br>〜意味付けの力を体験する〜</p>
+            <div style="margin-top: 40px; font-size: 1.1em;">
+                <p>🎵 音楽を通じて学ぶ認知の柔軟性</p>
+                <p>🧠 意味付けが感情に与える影響</p>
+                <p>💡 日常生活への応用</p>
+            </div>
+        </div>
+
+        <!-- スライド2: 問題提起 -->
+        <div class="slide">
+            <div class="slide-number">2/8</div>
+            <h2>🤔 なぜ同じ歌詞でも印象が変わるのか？</h2>
+            
+            <div class="music-example">
+                <h4>📝 カフカの名言（歌詞として使用）</h4>
+                <p class="quote">
+                    「将来にむかって歩くことは、ぼくにはできません。<br>
+                    将来にむかってつまずくこと、これはできます。<br>
+                    いちばんうまくできるのは、倒れたままでいることです。」
+                </p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <h4>🎹 メランコリックバラード</h4>
+                    <p>深い共感、沈静、内省<br>「人生は辛く困難なもの」</p>
+                </div>
+                <div class="comparison-item">
+                    <h4>🕺 ダンスミュージック</h4>
+                    <p>解放感、カタルシス、希望<br>「困難も乗り越えられる」</p>
+                </div>
+            </div>
+
+            <div class="key-insight">
+                <strong>重要な気づき:</strong> 歌詞（事実）は同じでも、音楽スタイル（文脈）が変わることで全く異なる意味が生まれる
+            </div>
+        </div>
+
+        <!-- スライド3: 音楽的要素の影響 -->
+        <div class="slide">
+            <div class="slide-number">3/8</div>
+            <h2>🎵 音楽的要素が感情に与える影響</h2>
+            
+            <h3>音楽の基本要素と心理的効果</h3>
+            <ul>
+                <li><strong>テンポ:</strong> 速い→興奮・エネルギー / 遅い→内省・沈静</li>
+                <li><strong>調性:</strong> 長調→明るさ・希望 / 短調→暗さ・憂鬱</li>
+                <li><strong>リズム:</strong> 強い→身体的高揚 / 弱い→静寂・瞑想</li>
+                <li><strong>音色:</strong> 明るい→開放感 / 暗い→重厚感</li>
+            </ul>
+
+            <div class="cognitive-points">
+                <h4>🧠 認知科学的な説明</h4>
+                <p>音楽的要素は歌詞の意味とは独立して、私たちの感情や身体反応に<span class="highlight">直接働きかける</span>。この生理的・感情的状態が、歌詞（認知内容）の解釈に大きな影響を与える。</p>
+            </div>
+
+            <div class="key-insight">
+                音楽は「感情の先行条件」を作り出し、その感情状態が思考の解釈を変える
+            </div>
+        </div>
+
+        <!-- スライド4: 認知療法との関連 -->
+        <div class="slide">
+            <div class="slide-number">4/8</div>
+            <h2>🧠 認知療法的視点からの考察</h2>
+            
+            <h3>1. 認知的再構築（Cognitive Restructuring）</h3>
+            <div class="cognitive-points">
+                <h4>音楽スタイルの変更 ≈ 思考の枠組みの変更</h4>
+                <ul>
+                    <li>同じ認知内容に異なる「文脈」を与える</li>
+                    <li>自動思考から柔軟な思考への転換</li>
+                    <li>新しい視点・解釈の可能性を開く</li>
+                </ul>
+            </div>
+
+            <h3>2. 感情調節（Emotion Regulation）</h3>
+            <div class="cognitive-points">
+                <h4>音楽 → 感情状態 → 認知の解釈</h4>
+                <ul>
+                    <li>音楽が先に感情状態を作る</li>
+                    <li>その感情が歌詞の意味付けを変える</li>
+                    <li>結果として認知パターンが変化</li>
+                </ul>
+            </div>
+
+            <h3>3. 行動活性化</h3>
+            <div class="cognitive-points">
+                <h4>「倒れたまま」から「踊る」への転換</h4>
+                <ul>
+                    <li>回避行動から活動的行動へ</li>
+                    <li>身体感覚を通じた気分改善</li>
+                    <li>行動の変化が認知を変える</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- スライド5: 意味付けの重要性 -->
+        <div class="slide">
+            <div class="slide-number">5/8</div>
+            <h2>💡 意味付けの力 - 認知療法の核心</h2>
+            
+            <div class="quote">
+                「出来事そのものではなく、その出来事に対する意味付けが<br>
+                私たちの感情や行動を決める」
+            </div>
+
+            <h3>「事実」と「解釈」の分離</h3>
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <h4>📊 事実（変わらない）</h4>
+                    <p>・失敗した<br>・批判された<br>・孤独を感じた<br>・困難に直面した</p>
+                </div>
+                <div class="comparison-item">
+                    <h4>🎭 解釈（選択可能）</h4>
+                    <p>・学習の機会<br>・成長のフィードバック<br>・自分と向き合う時間<br>・強くなるチャンス</p>
+                </div>
+            </div>
+
+            <div class="key-insight">
+                <strong>音楽のリミックスのように、私たちには同じ経験に対して<br>
+                「どの音楽を付けるか」の選択権がある</strong>
+            </div>
+        </div>
+
+        <!-- スライド6: 実践的応用 -->
+        <div class="slide">
+            <div class="slide-number">6/8</div>
+            <h2>🛠️ 日常生活への実践的応用</h2>
+            
+            <h3>1. メタ認知的質問法</h3>
+            <div class="practical-exercise">
+                <h4>💭 自己問いかけ</h4>
+                <ul>
+                    <li>「今、自分はどんな音楽をこの状況に付けているだろう？」</li>
+                    <li>「別のジャンルだったらどう聞こえるだろう？」</li>
+                    <li>「この出来事に他の意味付けはできないだろうか？」</li>
+                </ul>
+            </div>
+
+            <h3>2. 意味付けの選択練習</h3>
+            <div class="practical-exercise">
+                <h4>🎵 「音楽スタイル」思考法</h4>
+                <ul>
+                    <li><strong>重いバラード版:</strong> 問題を深刻に受け止める</li>
+                    <li><strong>ポップス版:</strong> 軽やかに受け流す</li>
+                    <li><strong>ロック版:</strong> 力強く立ち向かう</li>
+                    <li><strong>ジャズ版:</strong> 即興的に柔軟に対応する</li>
+                </ul>
+            </div>
+
+            <h3>3. 感情調節テクニック</h3>
+            <div class="practical-exercise">
+                <h4>🎼 実際の音楽を活用</h4>
+                <ul>
+                    <li>困難な状況で意図的に明るい音楽を聞く</li>
+                    <li>ネガティブ思考を別のリズムで考え直す</li>
+                    <li>身体を動かしながら問題を考える</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- スライド7: ワークショップ提案 -->
+        <div class="slide">
+            <div class="slide-number">7/8</div>
+            <h2>🎯 セミナー・ワークショップでの活用</h2>
+            
+            <h3>1. 体験型学習プログラム</h3>
+            <div class="practical-exercise">
+                <h4>🎵 音楽比較ワークショップ</h4>
+                <ul>
+                    <li>同じ歌詞を異なるスタイルで実際に聞く</li>
+                    <li>参加者の印象・感情の変化を共有</li>
+                    <li>日常の出来事に当てはめて考える</li>
+                </ul>
+            </div>
+
+            <h3>2. 認知の柔軟性トレーニング</h3>
+            <div class="practical-exercise">
+                <h4>🧠 「リミックス思考」練習</h4>
+                <ul>
+                    <li>個人の困難体験を「別のジャンル」で表現</li>
+                    <li>グループでの意味付け共有</li>
+                    <li>多様な視点の気づき</li>
+                </ul>
+            </div>
+
+            <h3>3. 治療的効果の期待</h3>
+            <div class="cognitive-points">
+                <h4>期待される効果</h4>
+                <ul>
+                    <li>認知の柔軟性の向上</li>
+                    <li>感情調節能力の強化</li>
+                    <li>メタ認知スキルの発達</li>
+                    <li>創造的問題解決能力の向上</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- スライド8: まとめ -->
+        <div class="slide">
+            <div class="slide-number">8/8</div>
+            <h2>🎯 まとめ - 意味付けの力を活用しよう</h2>
+            
+            <div class="key-insight">
+                <h3>🎵 音楽が教えてくれること</h3>
+                <p>同じ「歌詞（現実）」でも、「音楽（意味付け）」が変われば<br>
+                全く異なる体験になる</p>
+            </div>
+
+            <h3>🌟 今日から実践できること</h3>
+            <ul style="font-size: 1.2em; margin: 30px 0;">
+                <li>困難な状況に遭遇したとき、<span class="highlight">「別の音楽」</span>をつけてみる</li>
+                <li>自動的な意味付けに気づき、<span class="highlight">選択権</span>があることを思い出す</li>
+                <li>感情と思考の相互作用を意識的に活用する</li>
+                <li>多様な視点から物事を見る<span class="highlight">柔軟性</span>を育む</li>
+            </ul>
+
+            <div class="quote" style="font-size: 1.3em; margin-top: 40px;">
+                「人生というのは、自分がどんな音楽をつけるかで<br>
+                まったく違う作品になる」
+            </div>
+
+            <div style="text-align: center; margin-top: 40px; font-size: 1.1em;">
+                <p>🎵 あなたの人生に、今日はどんな音楽をつけますか？</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        スライド操作: ページをスクロールしてください
+    </div>
+
+    <script>
+        // スムーズスクロール機能
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowDown' || e.key === ' ') {
+                e.preventDefault();
+                window.scrollBy({
+                    top: window.innerHeight,
+                    behavior: 'smooth'
+                });
+            }
+            if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                window.scrollBy({
+                    top: -window.innerHeight,
+                    behavior: 'smooth'
+                });
+            }
+        });
+
+        // スライド要素にフェードイン効果
+        const slides = document.querySelectorAll('.slide');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        slides.forEach(slide => {
+            slide.style.opacity = '0';
+            slide.style.transform = 'translateY(20px)';
+            slide.style.transition = 'all 0.6s ease-out';
+            observer.observe(slide);
+        });
+    </script>
+</body>
+</html>
